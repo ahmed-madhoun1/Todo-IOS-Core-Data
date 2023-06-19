@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F26EF0172A404F4D00C0DCF9 /* TodoIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F26EF0152A404F4D00C0DCF9 /* TodoIOS.xcdatamodeld */; };
 		F2E1F9402A3DF07B004218E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F93F2A3DF07B004218E8 /* AppDelegate.swift */; };
 		F2E1F9422A3DF07B004218E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F9412A3DF07B004218E8 /* SceneDelegate.swift */; };
 		F2E1F9442A3DF07B004218E8 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F9432A3DF07B004218E8 /* TodoListViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F26EF0162A404F4D00C0DCF9 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F2E1F93C2A3DF07B004218E8 /* Todo IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E1F93F2A3DF07B004218E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2E1F9412A3DF07B004218E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F26EF00F2A403F0C00C0DCF9 /* Supporting Fiels */ = {
+			isa = PBXGroup;
+			children = (
+				F2E1F9482A3DF07D004218E8 /* Assets.xcassets */,
+				F2E1F94A2A3DF07D004218E8 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Fiels";
+			sourceTree = "<group>";
+		};
+		F26EF0102A403F2500C0DCF9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2E1F9432A3DF07B004218E8 /* TodoListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F26EF0112A403F3200C0DCF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2E1F9452A3DF07B004218E8 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F26EF0122A403F3F00C0DCF9 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				F26EF0152A404F4D00C0DCF9 /* TodoIOS.xcdatamodeld */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		F2E1F9332A3DF07B004218E8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +93,10 @@
 			children = (
 				F2E1F93F2A3DF07B004218E8 /* AppDelegate.swift */,
 				F2E1F9412A3DF07B004218E8 /* SceneDelegate.swift */,
-				F2E1F9432A3DF07B004218E8 /* TodoListViewController.swift */,
-				F2E1F9452A3DF07B004218E8 /* Main.storyboard */,
-				F2E1F9482A3DF07D004218E8 /* Assets.xcassets */,
-				F2E1F94A2A3DF07D004218E8 /* LaunchScreen.storyboard */,
+				F26EF0122A403F3F00C0DCF9 /* Data Model */,
+				F26EF0102A403F2500C0DCF9 /* Controllers */,
+				F26EF0112A403F3200C0DCF9 /* Views */,
+				F26EF00F2A403F0C00C0DCF9 /* Supporting Fiels */,
 				F2E1F94D2A3DF07D004218E8 /* Info.plist */,
 			);
 			path = "Todo IOS";
@@ -139,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E1F9442A3DF07B004218E8 /* TodoListViewController.swift in Sources */,
+				F26EF0172A404F4D00C0DCF9 /* TodoIOS.xcdatamodeld in Sources */,
 				F2E1F9402A3DF07B004218E8 /* AppDelegate.swift in Sources */,
 				F2E1F9422A3DF07B004218E8 /* SceneDelegate.swift in Sources */,
 			);
@@ -356,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F26EF0152A404F4D00C0DCF9 /* TodoIOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F26EF0162A404F4D00C0DCF9 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = F26EF0162A404F4D00C0DCF9 /* DataModel.xcdatamodel */;
+			path = TodoIOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F2E1F9342A3DF07B004218E8 /* Project object */;
 }
