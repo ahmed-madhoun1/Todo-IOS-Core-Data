@@ -15,7 +15,7 @@ class TodoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,5 +72,36 @@ class TodoListViewController: UITableViewController {
         }
     }
     
+    func loadData(with request: NSFetchRequest<TodoEntity> = TodoEntity.fetchRequest()){
+        do{
+            list = try context.fetch(request)
+        }catch{
+            print(error)
+        }
+        tableView.reloadData()
+    }
+    
 }
 
+// MARK: - Search Bar Methods
+extension TodoListViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if(searchBar.text != nil && searchBar.text!.count > 0){
+            let request: NSFetchRequest<TodoEntity> = TodoEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+            loadData(with: request)
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+    
+}
