@@ -11,6 +11,13 @@ import CoreData
 class TodoListViewController: UITableViewController {
     
     var list = [TodoEntity]()
+    
+    var category: CategoryEntity? {
+        didSet {
+            loadData()
+        }
+    }
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -49,10 +56,11 @@ class TodoListViewController: UITableViewController {
         }
         
         let action = UIAlertAction(title: "Add Item", style: .default){(action) in
-            if let text = textField.text {
+            if textField.text != nil && !textField.text!.isEmpty {
                 let newTodo = TodoEntity(context: self.context)
-                newTodo.title = text
+                newTodo.title = textField.text
                 newTodo.done = false
+                newTodo.category = self.category
                 self.list.append(newTodo)
                 self.saveTodo()
                 self.tableView.reloadData()
@@ -72,7 +80,15 @@ class TodoListViewController: UITableViewController {
         }
     }
     
-    func loadData(with request: NSFetchRequest<TodoEntity> = TodoEntity.fetchRequest()){
+    func loadData(with request: NSFetchRequest<TodoEntity> = TodoEntity.fetchRequest(), predicate:NSPredicate? = nil){
+        let categoryPredicate = NSPredicate(format: "category.name MATCHES %@", category!.name!)
+        
+        if let additionalPredicate = predicate{
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+        }else{
+            request.predicate = categoryPredicate
+        }
+        
         do{
             list = try context.fetch(request)
         }catch{
@@ -89,9 +105,9 @@ extension TodoListViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if(searchBar.text != nil && searchBar.text!.count > 0){
             let request: NSFetchRequest<TodoEntity> = TodoEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
             request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-            loadData(with: request)
+            loadData(with: request, predicate: predicate)
         }
     }
     

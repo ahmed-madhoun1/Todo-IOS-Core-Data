@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Todo-->
+        <!--Todos-->
         <scene sceneID="87G-em-g5v">
             <objects>
                 <tableViewController id="Q89-Z9-h46" customClass="TodoListViewController" customModule="Todo_IOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                             <outlet property="delegate" destination="Q89-Z9-h46" id="Lrp-mk-Xf9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todo" id="ckl-oC-ByK">
+                    <navigationItem key="navigationItem" title="Todos" id="ckl-oC-ByK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2d-nf-lzS">
                             <color key="tintColor" red="0.1215686275" green="0.13725490200000001" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSp-pO-Gze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1883.206106870229" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2538" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="axc-kj-J8c">
@@ -63,12 +63,50 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Q89-Z9-h46" kind="relationship" relationship="rootViewController" id="9fm-d6-5uE"/>
+                        <segue destination="k44-TQ-GR9" kind="relationship" relationship="rootViewController" id="m8K-iW-glM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTm-Mo-XDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="956.48854961832058" y="-27.464788732394368"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="Maq-6e-hpU">
+            <objects>
+                <tableViewController id="k44-TQ-GR9" customClass="CategoryViewController" customModule="Todo_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="er0-W5-BsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CategoryCell" id="LY3-Ut-CpV">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LY3-Ut-CpV" id="icm-wd-DrU">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="k44-TQ-GR9" id="3uo-un-t87"/>
+                            <outlet property="delegate" destination="k44-TQ-GR9" id="0ot-Vq-Bo0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Categories" id="GZ7-kn-DpM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BVI-YF-JMH">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="k44-TQ-GR9" id="8s5-W8-jh1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Q89-Z9-h46" kind="show" identifier="goToTodos" id="jNw-1z-jtS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVe-rY-4MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="-27"/>
         </scene>
     </scenes>
     <resources>
